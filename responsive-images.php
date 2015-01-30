@@ -53,26 +53,27 @@ function picfill_responsive_shortcode( $atts ) {
     extract( shortcode_atts( array(
         'imageid'    => 1,
         // You can add more sizes for your shortcodes here
-        'sizeXS'   => 0,
-        'sizeS'    => 250,
-        'sizeM'    => 500,
-        'sizeL'    => 750,
-        'sizeXL'   => 1000,
-        'size2XL'  => 1500,
-        'size3XL'  => 2000,
-        'size4XL'  => 3000
-    ), $atts,'picfill') );
+        // NOTE - cannot use uppercase letters in var names here or the shortcode $atts won't match - http://wordpress.stackexchange.com/questions/106447/overriding-attributes-values-in-shortcode-plugins
+        'sizexs'   => 0,
+        'sizes'    => 250,
+        'sizem'    => 500,
+        'sizel'    => 750,
+        'sizexl'   => 1000,
+        'size2xl'  => 1500,
+        'size3xl'  => 2000,
+        'size4xl'  => 3000
+    ), $atts ) );
 
     // map the sizes to their names
     $mappings = array(
-        $sizeXS    => 'imgXS', 
-        $sizeS     => 'imgS',  
-        $sizeM     => 'imgM',  
-        $sizeL     => 'imgL',  
-        $sizeXL    => 'imgXL', 
-        $size2XL   => 'img2XL',
-        $size3XL   => 'img3XL',
-        $size4XL   => 'img4XL'
+        $sizexs    => 'imgXS', 
+        $sizes     => 'imgS',  
+        $sizem     => 'imgM',  
+        $sizel     => 'imgL',  
+        $sizexl    => 'imgXL', 
+        $size2xl   => 'img2XL',
+        $size3xl   => 'img3XL',
+        $size4xl   => 'img4XL'
     );
 
     // return the assembeled markup
@@ -90,16 +91,7 @@ add_shortcode( 'picfill', 'picfill_responsive_shortcode' );
 
 // altering media uploader output into the post editor - outputs shortcode instead of image
 function picfill_insert_image($html, $id, $caption, $title, $align, $url) {
-    return "[picfill imageid='$id' 
-        sizeXS='0' 
-        sizeS='250' 
-        sizeM='500' 
-        sizeL='750' 
-        sizeXL='1000' 
-        size2XL='1500' 
-        size3XL='2000' 
-        size4XL='3000' 
-        ]"
+    return "[picfill imageid='$id' sizexs='0' sizes='250' sizem='500' sizel='750' sizexl='1000' size2xl='1500' size3xl='2000' size4xl='3000' ]"
     ;
 }
 add_filter('image_send_to_editor', 'picfill_insert_image', 10, 9);
