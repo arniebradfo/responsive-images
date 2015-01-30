@@ -8,9 +8,9 @@ Plugin Name: Responsive Image Grid
 Plugin URI: http://css-tricks.com/hassle-free-responsive-images-for-wordpress/
 Description: Uses the new picture element and the picturefill polyfill to serve up responsive images.
 Author: Arnie Bradfo / Chris Coyier 
-Version: 0.2.1
+Author URI: polaris.graphics
+Version: 0.2.2
 GitHub Plugin URI: https://github.com/arniebradfo/responsive-images
-Author URI: 
 */
 
 // add the picturefill polyfill as a script
