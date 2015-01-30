@@ -9,7 +9,7 @@ Plugin URI: http://css-tricks.com/hassle-free-responsive-images-for-wordpress/
 Description: Uses the new picture element and the picturefill polyfill to serve up responsive images.
 Author: Arnie Bradfo / Chris Coyier 
 Author URI: polaris.graphics
-Version: 0.2.2
+Version: 0.2.3
 GitHub Plugin URI: https://github.com/arniebradfo/responsive-images
 */
 
@@ -92,7 +92,7 @@ add_shortcode( 'picfill', 'picfill_responsive_shortcode' );
 
 // altering media uploader output into the post editor - outputs shortcode instead of image
 function picfill_insert_image($html, $id, $caption, $title, $align, $url) {
-    return "[picfill imageid='$id' sizexs='0' sizes='250' sizem='500' sizel='750' sizexl='1000' size2xl='1500' size3xl='2000' size4xl='3000' ]"
+    return "[picfill imageid='$id' sizeXS='0' sizeS='250' sizeM='500' sizeL='750' sizeXL='1000' size2XL='1500' size3XL='2000' size4XL='3000' ]"
     ;
 }
 add_filter('image_send_to_editor', 'picfill_insert_image', 10, 9);
